@@ -17,7 +17,7 @@ which is the shortest path between the two nodes. This shortest path computation
 i.e. the complexity is `O(|V|+|E|)` using a standard BFS approach.
 
 FSE uses a different approach, it firsts computes an embedding of all Wordnet nodes into the Hamming hypercube. Concretely, each node
-is given a 128-bit signature, these signatures have the property that their pairwise Hamming distances are very correlated to their Leacock and Chodorow similarities (Pearson .819; Spearma .82).
+is given a 128-bit signature, these signatures have the property that their pairwise Hamming distances are very correlated to their Leacock and Chodorow similarities (Pearson: .819; Spearman: .82).
 
 Using FSE, the distance between two words is computed like this:
 ```
