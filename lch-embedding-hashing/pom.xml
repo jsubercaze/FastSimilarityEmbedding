@@ -31,14 +31,19 @@
 		</dependency>
 		<dependency>
 			<groupId>fr.ujm.lhc.krr.fse</groupId>
-			<artifactId>tree-embedding-core</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>fr.ujm.lhc.krr.fse</groupId>
-			<artifactId>tree-embedding-utils</artifactId>
+			<artifactId>lch-embedding-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>fr.ujm.lhc.krr.fse</groupId> -->
+		<!-- <artifactId>tree-embedding-core</artifactId> -->
+		<!-- <version>0.0.1-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>fr.ujm.lhc.krr.fse</groupId> -->
+		<!-- <artifactId>tree-embedding-utils</artifactId> -->
+		<!-- <version>${project.version}</version> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>

@@ -2,12 +2,11 @@ package fr.ujm.lhc.krr.fse.hash.tree.hasher.heuristics;
 
 import org.apache.log4j.Logger;
 
-import fr.ujm.lhc.krr.fse.hash.tree.hasher.result.TreeHashFingerprintResult;
-
-import fr.tse.ujm.lt2c.satin.hash.tree.utils.Measure;
-import fr.tse.ujm.lt2c.satin.hash.tree.utils.MeasureUtils;
 import fr.ujm.lhc.krr.fse.hash.tree.Tree;
 import fr.ujm.lhc.krr.fse.hash.tree.TreeNode;
+import fr.ujm.lhc.krr.fse.hash.tree.hasher.result.TreeHashFingerprintResult;
+import fr.ujm.lhc.krr.fse.hash.tree.utils.Measure;
+import fr.ujm.lhc.krr.fse.hash.tree.utils.MeasureUtils;
 
 /**
  * Augment the size of the countbits to reach the given word aligned size

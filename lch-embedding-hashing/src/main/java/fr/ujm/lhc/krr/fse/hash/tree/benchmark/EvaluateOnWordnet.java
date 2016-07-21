@@ -17,8 +17,9 @@ import fr.ujm.lhc.krr.fse.hash.tree.hasher.TreeHasher;
 import fr.ujm.lhc.krr.fse.hash.tree.hasher.exact.PerfectHashingScheme;
 import fr.ujm.lhc.krr.fse.hash.tree.hasher.heuristics.AdaptiveLeftHasherEnhanced;
 import au.com.bytecode.opencsv.CSVWriter;
-import fr.tse.ujm.lt2c.satin.hash.tree.utils.MeasureUtils;
+
 import fr.ujm.lhc.krr.fse.hash.tree.Tree;
+import fr.ujm.lhc.krr.fse.hash.tree.utils.MeasureUtils;
 import fr.ujm.lhc.krr.fse.hash.tree.utils.TreeUtils;
 
 /**
@@ -31,17 +32,14 @@ import fr.ujm.lhc.krr.fse.hash.tree.utils.TreeUtils;
 public class EvaluateOnWordnet {
 
 	public static final int SUBSET_SIZE = 2000;
-	private final static Logger LOGGER = Logger
-			.getLogger(EvaluateOnWordnet.class);
+	private final static Logger LOGGER = Logger.getLogger(EvaluateOnWordnet.class);
 
 	public static void main(final String[] args) throws IOException {
 		LOGGER.info("Evaluation on Wordnet with subset size = " + SUBSET_SIZE);
 		// Prepare CSV result
-		final CSVWriter writer = new CSVWriter(new FileWriter(
-				"groTestSimple5.csv"), ';');
+		final CSVWriter writer = new CSVWriter(new FileWriter("groTestSimple5.csv"), ';');
 		LOGGER.info("Reading Wordnet tree");
-		final Tree<String> wordnet = TreeUtils.readTreeFromJsonFile(new File(
-				"C:/temp/wordnetUS/simple.tree"), null);
+		final Tree<String> wordnet = TreeUtils.readTreeFromJsonFile(new File("C:/temp/wordnetUS/simple.tree"), null);
 		LOGGER.info("Branching factor " + MeasureUtils.branchingFactor(wordnet));
 		LOGGER.info("Depth " + MeasureUtils.depth(wordnet));
 		LOGGER.info("Leaves depth" + MeasureUtils.leavesDepth(wordnet));
@@ -55,23 +53,24 @@ public class EvaluateOnWordnet {
 		lists.add(new AdaptiveLeftHasherEnhanced(true, true, false));
 		lists.add(new AdaptiveLeftHasherEnhanced(true, false, true));
 		lists.add(new AdaptiveLeftHasherEnhanced(true, true, true));
-//		lists.add(new AdaptiveLeftHasherEnhanced(false, false, false));
-//		lists.add(new AdaptiveLeftHasherEnhanced(false, true, false));
-//		lists.add(new AdaptiveLeftHasherEnhanced(false, false, true));
-//		lists.add(new AdaptiveLeftHasherEnhanced(false, true, true));
-//		lists.add(new AdaptiveLeftHasherEnhancedWeighted(false, false, false));
-//		lists.add(new AdaptiveLeftHasherEnhancedWeighted(false, true, false));
-//		lists.add(new AdaptiveLeftHasherEnhancedWeighted(false, false, true));
-//		lists.add(new AdaptiveLeftHasherEnhancedWeighted(false, true, true));
+		// lists.add(new AdaptiveLeftHasherEnhanced(false, false, false));
+		// lists.add(new AdaptiveLeftHasherEnhanced(false, true, false));
+		// lists.add(new AdaptiveLeftHasherEnhanced(false, false, true));
+		// lists.add(new AdaptiveLeftHasherEnhanced(false, true, true));
+		// lists.add(new AdaptiveLeftHasherEnhancedWeighted(false, false,
+		// false));
+		// lists.add(new AdaptiveLeftHasherEnhancedWeighted(false, true,
+		// false));
+		// lists.add(new AdaptiveLeftHasherEnhancedWeighted(false, false,
+		// true));
+		// lists.add(new AdaptiveLeftHasherEnhancedWeighted(false, true, true));
 		// lists.add(new AdaptiveLeftHasherV2());
 		// lists.add(new AdaptiveLeftHasherTurboEnhanced(true, true));
 		// lists.add(new PreOrderGrayCodeHasher());
 		// lists.add(new AdaptivePermutationHasher());
 		// -----------------------
-		final TreeEvaluator eval = new TreeEvaluator(lists,
-				new PerfectHashingScheme(), wordnet, false);
-		final List<TreeEvaluationResult> result = eval
-				.randomSubsetEvaluation(SUBSET_SIZE);
+		final TreeEvaluator eval = new TreeEvaluator(lists, new PerfectHashingScheme(), wordnet, false);
+		final List<TreeEvaluationResult> result = eval.randomSubsetEvaluation(SUBSET_SIZE);
 		for (final TreeEvaluationResult res : result) {
 			writer.writeNext(res.toStringArray());
 		}
